@@ -32,7 +32,7 @@ def predict():
 		data = [message]
 		vect = cv.transform(data)
 		my_prediction = clf.predict(vect)
-	return render_template('home.html',prediction = my_prediction)
+	return render_template('home.html',prediction = my_prediction , message = message)
 
 if __name__ == '__main__':
 	app.run()
