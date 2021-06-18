@@ -18,12 +18,13 @@
 			<input type="Submit" value="predict">
 			</form>
 			<div class="results">
+				<h2>PREDICTION</h2><br>
 				{% if prediction == 'neu'%}
-				<h2>SENTIMENT :Neutral statement</h2>
+				<h2>{{ message }} is a neutral statement.</h2>
 				{% elif prediction == 'neg'%}
-				<h2>SENTIMENT : Negative statement</h2>
+				<h2>{{ message }} is a negative statement.</h2>
 				{% elif prediction == 'pos'%}
-				<h2>SENTIMENT :Positive statement</h2>
+				<h2>{{ message }} is a positive statement.</h2>
 				{% endif %}
 			</div>
 		</div>
