@@ -12,21 +12,26 @@
 		<div id="formContent">
 	  
 		  <!-- Login Form -->
-		  <form action="{{ url_for('predict')}}" method="POST"> 
+		  <form action="{{ url_for('predict')}}" method="POST" > 
 			<label name="textlabel">Enter your text:</label><br>
-			<textarea name="message" class="fadeIn second" placeholder="Enter your text here!!" cols="50" rows="6" required></textarea>
-			<input type="Submit" value="predict">
+			<textarea name="message" id="message" class="fadeIn second" placeholder="Enter your text here!!" cols="50" rows="6" required></textarea>
+			<input type="submit" value="Predict Sentiment">
 			</form>
-			<div class="results">
+			<div class="results"><p id="display"></p>
 				{% if prediction == 'neu'%}
-				<h2>SENTIMENT :Neutral statement</h2>
+				<h2>Prediction : "{{ message }}" is a Neutral statement</h2>
 				{% elif prediction == 'neg'%}
-				<h2>SENTIMENT : Negative statement</h2>
+				<h2>Prediction : "{{ message }}" is a Negative statement</h2>
 				{% elif prediction == 'pos'%}
-				<h2>SENTIMENT :Positive statement</h2>
+				<h2>Prediction : "{{ message }}" is a Positive statement</h2>
 				{% endif %}
 			</div>
 		</div>
 	  </div>
+	  <script>
+		  function display(){
+			  document.getElementById("display").innerHTML = "SENTIMENT : "+ document.getElementById("message").value +" is a";
+		  }
+	  </script>
 </body>
 </html>
